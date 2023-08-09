@@ -649,6 +649,7 @@ static const RzCmdDescArg print_hexdump_hex8_args[2];
 static const RzCmdDescArg print_hexdump_hex8l_args[2];
 static const RzCmdDescArg print_hexdump_oct_args[2];
 static const RzCmdDescArg print_hexdump_n_lines_args[2];
+static const RzCmdDescArg cmd_print_n_byte_array_rizin_args[2];
 static const RzCmdDescArg print_url_encode_args[2];
 static const RzCmdDescArg print_url_encode_wide_args[2];
 static const RzCmdDescArg print_url_encode_zero_args[2];
@@ -14448,6 +14449,21 @@ static const RzCmdDescHelp print_hexdump_n_lines_help = {
 	.args = print_hexdump_n_lines_args,
 };
 
+static const RzCmdDescArg cmd_print_n_byte_array_rizin_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = false,
+
+	},
+	{ 0 },
+};
+static const RzCmdDescHelp cmd_print_n_byte_array_rizin_help = {
+	.summary = "Generate rizin commands for writing <N> bytes",
+	.args = cmd_print_n_byte_array_rizin_args,
+};
+
 static const RzCmdDescHelp p6_help = {
 	.summary = "Base64 decoding/encoding",
 };
@@ -21460,6 +21476,9 @@ RZ_IPI void rzshell_cmddescs_init(RzCore *core) {
 
 	RzCmdDesc *print_hexdump_n_lines_cd = rz_cmd_desc_argv_state_new(core->rcmd, px_cd, "pxl", RZ_OUTPUT_MODE_STANDARD | RZ_OUTPUT_MODE_JSON, rz_print_hexdump_n_lines_handler, &print_hexdump_n_lines_help);
 	rz_warn_if_fail(print_hexdump_n_lines_cd);
+
+	RzCmdDesc *cmd_print_n_byte_array_rizin_cd = rz_cmd_desc_argv_new(core->rcmd, px_cd, "px*", rz_cmd_print_n_byte_array_rizin_handler, &cmd_print_n_byte_array_rizin_help);
+	rz_warn_if_fail(cmd_print_n_byte_array_rizin_cd);
 
 	RzCmdDesc *p6_cd = rz_cmd_desc_group_new(core->rcmd, cmd_print_cd, "p6", NULL, NULL, &p6_help);
 	rz_warn_if_fail(p6_cd);

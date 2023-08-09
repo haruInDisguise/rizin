@@ -3620,6 +3620,21 @@ RZ_IPI RzCmdStatus rz_print_hexdump_oct_handler(RzCore *core, int argc, const ch
 		free(code); \
 		return result; \
 	}
+
+#define CMD_PRINT_N_BYTE_ARRAY_HANDLER(name, type, length) \
+    RZ_IPI RzCmdStatus name(RzCore *core, int argc, const char **argv) { \
+        const ut64 n_bytes = argc > 1 ? rz_num_math(core->num, argv[1]) : core->blocksize; \
+        char *code = rz_lang_n_byte_array(core->block, core->blocksize_max, type, n_bytes); \
+        if (RZ_STR_ISNOTEMPTY(code)) { \
+            rz_cons_println(code); \
+        } \
+        RzCmdStatus result = code ? RZ_CMD_STATUS_OK : RZ_CMD_STATUS_ERROR; \
+        free(code); \
+        return result;\
+    }
+
+CMD_PRINT_N_BYTE_ARRAY_HANDLER(rz_cmd_print_n_byte_array_rizin_handler, RZ_LANG_N_BYTE_ARRAY_RIZIN, 0);
+
 CMD_PRINT_BYTE_ARRAY_HANDLER_NORMAL(rz_cmd_print_byte_array_rizin_handler, RZ_LANG_BYTE_ARRAY_RIZIN);
 CMD_PRINT_BYTE_ARRAY_HANDLER_NORMAL(rz_cmd_print_byte_array_asm_handler, RZ_LANG_BYTE_ARRAY_ASM);
 CMD_PRINT_BYTE_ARRAY_HANDLER_NORMAL(rz_cmd_print_byte_array_bash_handler, RZ_LANG_BYTE_ARRAY_BASH);
