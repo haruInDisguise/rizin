@@ -29,7 +29,6 @@ rz_util_common_sources = [
   'json_indent.c',
   'json_parser.c',
   'lang_byte_array.c',
-  'lang_n_byte_array.c',
   'lib.c',
   'list.c',
   'log.c',

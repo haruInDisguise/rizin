@@ -2029,8 +2029,6 @@ RZ_IPI RzCmdStatus rz_print_hexdump_hex8l_handler(RzCore *core, int argc, const 
 RZ_IPI RzCmdStatus rz_print_hexdump_oct_handler(RzCore *core, int argc, const char **argv);
 // "pxl"
 RZ_IPI RzCmdStatus rz_print_hexdump_n_lines_handler(RzCore *core, int argc, const char **argv, RzCmdStateOutput *state);
-// "px*"
-RZ_IPI RzCmdStatus rz_cmd_print_n_byte_array_rizin_handler(RzCore *core, int argc, const char **argv);
 // "p6e"
 RZ_IPI RzCmdStatus rz_cmd_base64_encode_handler(RzCore *core, int argc, const char **argv, RzOutputMode mode);
 // "p6d"

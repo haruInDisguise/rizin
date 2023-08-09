@@ -565,6 +565,21 @@ static const RzCmdDescArg hex_of_assembly_args[2];
 static const RzCmdDescArg esil_of_assembly_args[2];
 static const RzCmdDescArg assembly_of_hex_args[2];
 static const RzCmdDescArg esil_of_hex_args[2];
+static const RzCmdDescArg cmd_print_byte_array_c_cpp_bytes_args[2];
+static const RzCmdDescArg cmd_print_byte_array_asm_args[2];
+static const RzCmdDescArg cmd_print_byte_array_with_inst_args[2];
+static const RzCmdDescArg cmd_print_byte_array_bash_args[2];
+static const RzCmdDescArg cmd_print_byte_array_golang_args[2];
+static const RzCmdDescArg cmd_print_byte_array_java_args[2];
+static const RzCmdDescArg cmd_print_byte_array_json_args[2];
+static const RzCmdDescArg cmd_print_byte_array_kotlin_args[2];
+static const RzCmdDescArg cmd_print_byte_array_nodejs_args[2];
+static const RzCmdDescArg cmd_print_byte_array_objc_args[2];
+static const RzCmdDescArg cmd_print_byte_array_python_args[2];
+static const RzCmdDescArg cmd_print_byte_array_rust_args[2];
+static const RzCmdDescArg cmd_print_byte_array_swift_args[2];
+static const RzCmdDescArg cmd_print_byte_array_yara_args[2];
+static const RzCmdDescArg cmd_print_byte_array_rizin_args[2];
 static const RzCmdDescArg cmd_disassembly_n_bytes_args[2];
 static const RzCmdDescArg print_columns_disassembly_args[2];
 static const RzCmdDescArg print_columns_debug_args[2];
@@ -649,7 +664,6 @@ static const RzCmdDescArg print_hexdump_hex8_args[2];
 static const RzCmdDescArg print_hexdump_hex8l_args[2];
 static const RzCmdDescArg print_hexdump_oct_args[2];
 static const RzCmdDescArg print_hexdump_n_lines_args[2];
-static const RzCmdDescArg cmd_print_n_byte_array_rizin_args[2];
 static const RzCmdDescArg print_url_encode_args[2];
 static const RzCmdDescArg print_url_encode_wide_args[2];
 static const RzCmdDescArg print_url_encode_zero_args[2];
@@ -12557,10 +12571,17 @@ static const RzCmdDescHelp cmd_print_byte_array_help = {
 	.details = cmd_print_byte_array_details,
 };
 static const RzCmdDescArg cmd_print_byte_array_c_cpp_bytes_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_c_cpp_bytes_help = {
-	.summary = "Generate a C/C++ byte array.",
+	.summary = "Generate a C/C++ byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_c_cpp_bytes_args,
 };
 
@@ -12589,6 +12610,13 @@ static const RzCmdDescHelp cmd_print_byte_array_c_cpp_double_word_help = {
 };
 
 static const RzCmdDescArg cmd_print_byte_array_asm_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_asm_help = {
@@ -12597,106 +12625,197 @@ static const RzCmdDescHelp cmd_print_byte_array_asm_help = {
 };
 
 static const RzCmdDescArg cmd_print_byte_array_with_inst_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_with_inst_help = {
-	.summary = "Generate a byte array in GAS assembly with instructions in comments",
+	.summary = "Generate a byte array in GAS assembly with instructions in comments. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_with_inst_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_bash_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_bash_help = {
-	.summary = "Generate a bash script with the byte array.",
+	.summary = "Generate a bash script with the byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_bash_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_golang_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_golang_help = {
-	.summary = "Generate a Golang byte array.",
+	.summary = "Generate a Golang byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_golang_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_java_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_java_help = {
-	.summary = "Generate a Java byte array.",
+	.summary = "Generate a Java byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_java_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_json_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_json_help = {
-	.summary = "Generate a JSON byte array.",
+	.summary = "Generate a JSON byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_json_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_kotlin_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_kotlin_help = {
-	.summary = "Generate a Kotlin byte array.",
+	.summary = "Generate a Kotlin byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_kotlin_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_nodejs_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_nodejs_help = {
-	.summary = "Generate a NodeJS buffer.",
+	.summary = "Generate a NodeJS buffer. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_nodejs_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_objc_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_objc_help = {
-	.summary = "Generate a Objective-C/C++ byte array.",
+	.summary = "Generate a Objective-C/C++ byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_objc_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_python_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_python_help = {
-	.summary = "Generate a Python byte array.",
+	.summary = "Generate a Python byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_python_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_rust_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_rust_help = {
-	.summary = "Generate a Rust byte array.",
+	.summary = "Generate a Rust byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_rust_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_swift_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_swift_help = {
-	.summary = "Generate a Swift byte array.",
+	.summary = "Generate a Swift byte array. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_swift_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_yara_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_yara_help = {
-	.summary = "Generate a Yara match pattern.",
+	.summary = "Generate a Yara match pattern. Provide an argument to only print <N> bytes",
 	.args = cmd_print_byte_array_yara_args,
 };
 
 static const RzCmdDescArg cmd_print_byte_array_rizin_args[] = {
+	{
+		.name = "N",
+		.type = RZ_CMD_ARG_TYPE_RZNUM,
+		.flags = RZ_CMD_ARG_FLAG_LAST,
+		.optional = true,
+
+	},
 	{ 0 },
 };
 static const RzCmdDescHelp cmd_print_byte_array_rizin_help = {
-	.summary = "Generate a rizin commands for writing the byte array.",
+	.summary = "Generate a rizin commands for writing the byte array. Provide an argument to only print <N> bytes.",
 	.args = cmd_print_byte_array_rizin_args,
 };
 
@@ -14447,21 +14566,6 @@ static const RzCmdDescArg print_hexdump_n_lines_args[] = {
 static const RzCmdDescHelp print_hexdump_n_lines_help = {
 	.summary = "display <N> lines of hexdump",
 	.args = print_hexdump_n_lines_args,
-};
-
-static const RzCmdDescArg cmd_print_n_byte_array_rizin_args[] = {
-	{
-		.name = "N",
-		.type = RZ_CMD_ARG_TYPE_RZNUM,
-		.flags = RZ_CMD_ARG_FLAG_LAST,
-		.optional = false,
-
-	},
-	{ 0 },
-};
-static const RzCmdDescHelp cmd_print_n_byte_array_rizin_help = {
-	.summary = "Generate rizin commands for writing <N> bytes",
-	.args = cmd_print_n_byte_array_rizin_args,
 };
 
 static const RzCmdDescHelp p6_help = {
@@ -21476,9 +21580,6 @@ RZ_IPI void rzshell_cmddescs_init(RzCore *core) {
 
 	RzCmdDesc *print_hexdump_n_lines_cd = rz_cmd_desc_argv_state_new(core->rcmd, px_cd, "pxl", RZ_OUTPUT_MODE_STANDARD | RZ_OUTPUT_MODE_JSON, rz_print_hexdump_n_lines_handler, &print_hexdump_n_lines_help);
 	rz_warn_if_fail(print_hexdump_n_lines_cd);
-
-	RzCmdDesc *cmd_print_n_byte_array_rizin_cd = rz_cmd_desc_argv_new(core->rcmd, px_cd, "px*", rz_cmd_print_n_byte_array_rizin_handler, &cmd_print_n_byte_array_rizin_help);
-	rz_warn_if_fail(cmd_print_n_byte_array_rizin_cd);
 
 	RzCmdDesc *p6_cd = rz_cmd_desc_group_new(core->rcmd, cmd_print_cd, "p6", NULL, NULL, &p6_help);
 	rz_warn_if_fail(p6_cd);
